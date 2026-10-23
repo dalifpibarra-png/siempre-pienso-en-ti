@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Para ti, princesa 🌙</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#14111c">
+<meta property="og:title" content="Para ti, princesa 🌙">
+<meta property="og:description" content="Ábrelo antes de que toquen tu puerta.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  :root{
+    /* noche: tinta morada, oro cálido y rosa */
+    --fondo:#14111c; --papel:#fffaf3; --tinta:#2a2230; --claro:#f6eee6; --suave:#b7a9b9;
+    --oro:#ffcf5c; --rosa:#ff8fa3; --verde:#5e9b4a;
+    --fs:'Jost', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --ft:'Cormorant Garamond', Georgia, serif;
+  }
+  html,body{height:100%}
+  body{
+    font-family:var(--fs); background:var(--fondo); color:var(--claro);
+    min-height:100svh; overflow-x:hidden; overscroll-behavior:none;
+    background-image:
+      radial-gradient(760px 560px at 10% -10%, rgba(255,143,163,.18), transparent 62%),
+      radial-gradient(700px 560px at 95% 110%, rgba(255,207,92,.13), transparent 62%);
+    background-attachment:fixed;
+  }
+  .estrellas{position:fixed; inset:0; z-index:1; pointer-events:none}
+  .estrellas i{position:absolute; width:2px; height:2px; border-radius:50%; background:#fff; opacity:.2; animation:titila 3.4s ease-in-out infinite}
+  @keyframes titila{0%,100%{opacity:.15}50%{opacity:.85}}
+  .wrap{
+    position:relative; z-index:2; min-height:100svh; display:flex;
+    padding:calc(22px + env(safe-area-inset-top)) 20px calc(40px + env(safe-area-inset-bottom));
+  }
+  .pantalla{display:none; width:100%; max-width:430px; margin:auto; text-align:center; animation:entra .6s cubic-bezier(.2,.8,.2,1) both}
+  .pantalla.on{display:block}
+  @keyframes entra{from{opacity:0; transform:translateY(18px) scale(.97)}to{opacity:1; transform:none}}
+
+  .kicker{font-size:11.5px; letter-spacing:.24em; text-transform:uppercase; color:var(--rosa); font-weight:700; margin-bottom:14px}
+  h1{font-family:var(--ft); font-size:clamp(38px,11vw,52px); line-height:1.02; font-weight:700}
+  h2{font-family:var(--ft); font-size:clamp(30px,8.5vw,40px); line-height:1.06; font-weight:700}
+  h1 em, h2 em{font-style:italic; color:var(--oro)}
+  p.sub{margin-top:14px; font-size:16px; line-height:1.55; color:var(--suave)}
+  p.sub b{color:var(--claro)}
+
+  .btn{
+    display:inline-block; border:0; cursor:pointer; font-family:var(--fs); font-weight:700; font-size:17px;
+    padding:16px 32px; border-radius:999px; color:#2a1a10; background:linear-gradient(180deg,#ffdb7e,var(--oro));
+    box-shadow:0 12px 30px rgba(255,207,92,.25); transition:transform .15s ease;
+  }
+  .btn:active{transform:scale(.96)}
+  .btn.ghost{background:transparent; box-shadow:none; border:1.5px solid rgba(246,238,230,.25); color:var(--claro); font-weight:600; font-size:15px; padding:13px 24px}
+  .toca{margin-top:20px; font-size:13px; letter-spacing:.14em; text-transform:uppercase; color:var(--suave); opacity:.75; animation:late 1.8s ease-in-out infinite}
+  @keyframes late{0%,100%{opacity:.4}50%{opacity:.95}}
+
+  /* ---------- carta ---------- */
+  .carta{margin-top:24px; text-align:left; background:var(--papel); color:var(--tinta); border-radius:18px; padding:26px 22px; box-shadow:0 24px 60px rgba(0,0,0,.4)}
+  .carta p{font-family:var(--ft); font-size:21px; line-height:1.45; opacity:0; transform:translateY(8px); transition:opacity .9s, transform .9s}
+  .carta p + p{margin-top:12px}
+  .carta p.ve{opacity:1; transform:none}
+  .carta p b{color:#c2456b}
+  .carta .firma{text-align:right; font-style:italic; color:#8a6d7a}
+
+  /* ---------- tazón con tapa ---------- */
+  .mesa{position:relative; width:270px; height:230px; margin:22px auto 0; cursor:pointer}
+  .vapor{position:absolute; left:0; right:0; top:8px; height:70px; pointer-events:none}
+  .vapor span{
+    position:absolute; bottom:0; width:9px; height:42px; border-radius:50%;
+    background:linear-gradient(180deg, rgba(255,255,255,0), rgba(255,255,255,.7));
+    filter:blur(3px); opacity:0; animation:humo 3.2s ease-in-out infinite;
+  }
+  .vapor span:nth-child(1){left:38%; animation-delay:.2s}
+  .vapor span:nth-child(2){left:50%; animation-delay:1.1s}
+  .vapor span:nth-child(3){left:62%; animation-delay:2s}
+  @keyframes humo{0%{opacity:0; transform:translateY(10px) scale(.8)}40%{opacity:.8}100%{opacity:0; transform:translateY(-34px) scale(1.5)}}
+  .plato-svg{position:absolute; left:50%; bottom:6px; transform:translateX(-50%); width:256px; height:auto}
+  .tapa{
+    position:absolute; left:50%; bottom:18px; transform:translateX(-50%); width:232px; height:126px;
+    border-radius:116px 116px 12px 12px; background:linear-gradient(160deg,#2b2433,#15111b 60%,#0b0910);
+    box-shadow:0 18px 34px rgba(0,0,0,.5), inset 0 -8px 14px rgba(255,207,92,.10), inset 0 2px 0 rgba(255,255,255,.08);
+    transition:transform 1s cubic-bezier(.5,-.25,.25,1.25), opacity .6s .35s; z-index:4;
+  }
+  .tapa::before{content:""; position:absolute; left:50%; top:-13px; transform:translateX(-50%); width:26px; height:26px; border-radius:50%; background:linear-gradient(160deg,#ffdb7e,#b8862a)}
+  .tapa::after{content:""; position:absolute; left:50%; top:46%; transform:translateX(-50%); width:56%; height:2px; background:linear-gradient(90deg,transparent,var(--oro),transparent); opacity:.6}
+  .mesa.abierta .tapa{transform:translate(-50%,-150px) rotate(-16deg); opacity:0}
+  .charola{position:absolute; left:50%; bottom:0; transform:translateX(-50%); width:262px; height:22px; border-radius:12px; background:linear-gradient(180deg,#3a2c22,#20170f); box-shadow:0 14px 26px rgba(0,0,0,.4)}
+
+  /* ---------- relojes ---------- */
+  .falta{margin-top:20px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.10); border-radius:16px; padding:14px 10px}
+  .falta b{display:block; font-size:30px; font-weight:700; font-variant-numeric:tabular-nums; color:var(--oro); letter-spacing:-.02em}
+  .falta small{display:block; font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:var(--suave); margin-top:3px}
+  .codigo{margin-top:16px; text-align:center; background:var(--papel); color:var(--tinta); border-radius:16px; padding:14px 12px 15px}
+  .codigo small{display:block; font-size:10px; letter-spacing:.22em; text-transform:uppercase; opacity:.65; font-weight:700}
+  .codigo b{display:block; font-size:44px; font-weight:700; letter-spacing:.16em; line-height:1.1; margin:4px 0 2px; font-variant-numeric:tabular-nums; color:#c2456b}
+  .codigo em{display:block; font-style:normal; font-size:12.5px; opacity:.8; line-height:1.4}
+
+  .dedica{margin:26px 4px 4px; padding:22px 6px 4px; text-align:center; position:relative}
+  .dedica::before{content:"“"; position:absolute; top:-16px; left:50%; transform:translateX(-50%); font-family:var(--ft); font-size:70px; line-height:1; color:var(--oro); opacity:.35}
+  .dedica p{font-family:var(--ft); font-size:24px; line-height:1.42; font-style:italic}
+  .dedica p b{font-style:normal; font-weight:700; color:var(--rosa)}
+  .acciones{display:grid; gap:10px; margin-top:24px}
+  .acciones a{text-decoration:none; display:block}
+  .pie{margin-top:24px; font-size:13px; color:var(--suave); opacity:.85; line-height:1.6}
+  canvas.confeti{position:fixed; inset:0; z-index:99; pointer-events:none}
+
+  @media (max-width:365px){
+    .mesa{width:240px; height:210px} .tapa{width:206px; height:112px; border-radius:103px 103px 12px 12px}
+    .plato-svg{width:224px} .charola{width:232px}
+    .mesa.abierta .tapa{transform:translate(-50%,-132px) rotate(-16deg)}
+    .carta p{font-size:19px} .dedica p{font-size:21px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important}
+  }
+</style>
+</head>
+<body>
+<div class="estrellas" id="estrellas"></div>
+<canvas class="confeti" id="confeti"></canvas>
+<div class="wrap">
+
+  <!-- 1 -->
+  <section class="pantalla on" id="p1">
+    <div class="kicker">Para cerrar el día</div>
+    <h1>Hola,<br><em>princesa</em></h1>
+    <p class="sub">Sé que hoy fue un día difícil.<br>Antes de que toquen tu puerta, lee esto.</p>
+    <div style="margin-top:28px"><button class="btn" id="abrir">Ábrelo →</button></div>
+  </section>
+
+  <!-- 2 -->
+  <section class="pantalla" id="p2">
+    <div class="kicker">De tu Ferny</div>
+    <h2>Te quería<br><em>decir algo</em></h2>
+    <div class="carta" id="carta">
+      <p>Siempre pienso en ti, aunque tenga <b>mil cosas</b> en la cabeza.</p>
+      <p>Y siempre vas a ser importante para mí.</p>
+      <p>Sé que hoy fue un día difícil, y quería que lo cerraras con algo que te gusta.</p>
+      <p class="firma">— tu Ferny</p>
+    </div>
+    <div style="margin-top:22px; opacity:0; transition:opacity .6s" id="aCena"><button class="btn">Y algo más… →</button></div>
+  </section>
+
+  <!-- 3 -->
+  <section class="pantalla" id="p3">
+    <div class="kicker">Destapa</div>
+    <h2>Tu cena va<br><em>en camino</em></h2>
+    <div class="mesa" id="mesa">
+      <div class="vapor" id="vapor" style="opacity:0"><span></span><span></span><span></span></div>
+      <svg class="plato-svg" viewBox="0 0 220 150" aria-hidden="true">
+        <!-- tazón -->
+        <path d="M18 78 Q110 76 202 78 Q196 128 110 140 Q24 128 18 78 Z" fill="#1d1a22"/>
+        <path d="M24 84 Q110 82 196 84" stroke="#c2456b" stroke-width="3" fill="none" opacity=".8"/>
+        <ellipse cx="110" cy="78" rx="92" ry="22" fill="#2a2530"/>
+        <!-- arroz -->
+        <ellipse cx="110" cy="74" rx="86" ry="20" fill="#e8c27a"/>
+        <path d="M30 74 Q60 46 110 44 Q160 46 190 74 Q110 92 30 74 Z" fill="#efcf8c"/>
+        <g fill="#fff3d6" opacity=".9">
+          <ellipse cx="62" cy="64" rx="3" ry="1.6"/><ellipse cx="80" cy="56" rx="3" ry="1.6"/><ellipse cx="98" cy="70" rx="3" ry="1.6"/>
+          <ellipse cx="140" cy="58" rx="3" ry="1.6"/><ellipse cx="158" cy="68" rx="3" ry="1.6"/><ellipse cx="120" cy="52" rx="3" ry="1.6"/>
+          <ellipse cx="74" cy="74" rx="3" ry="1.6"/><ellipse cx="146" cy="76" rx="3" ry="1.6"/><ellipse cx="108" cy="80" rx="3" ry="1.6"/>
+        </g>
+        <!-- verduras -->
+        <g><rect x="66" y="60" width="6" height="6" rx="1.5" fill="#f08a3c"/><rect x="132" y="70" width="6" height="6" rx="1.5" fill="#f08a3c"/>
+          <rect x="104" y="58" width="6" height="6" rx="1.5" fill="#f08a3c"/><circle cx="90" cy="66" r="3" fill="#7cb14a"/><circle cx="150" cy="60" r="3" fill="#7cb14a"/></g>
+        <!-- arrachera -->
+        <g>
+          <rect x="76" y="46" width="52" height="11" rx="5.5" fill="#8a4426" transform="rotate(-10 102 51)"/>
+          <rect x="80" y="45" width="44" height="4" rx="2" fill="#5d2a15" opacity=".55" transform="rotate(-10 102 47)"/>
+          <rect x="104" y="58" width="54" height="11" rx="5.5" fill="#7b3b21" transform="rotate(9 131 63)"/>
+          <rect x="108" y="57" width="46" height="4" rx="2" fill="#5d2a15" opacity=".5" transform="rotate(9 131 59)"/>
+          <rect x="60" y="62" width="40" height="10" rx="5" fill="#8a4426" transform="rotate(-4 80 67)"/>
+        </g>
+        <!-- cebollín y ajonjolí -->
+        <g fill="#5e9b4a"><circle cx="96" cy="48" r="2.4"/><circle cx="124" cy="66" r="2.4"/><circle cx="70" cy="58" r="2.2"/><circle cx="146" cy="56" r="2.2"/><circle cx="112" cy="74" r="2.2"/></g>
+        <g fill="#fffaf3"><circle cx="88" cy="54" r="1.1"/><circle cx="118" cy="56" r="1.1"/><circle cx="136" cy="64" r="1.1"/><circle cx="80" cy="66" r="1.1"/></g>
+        <!-- palillos -->
+        <g stroke-linecap="round"><line x1="150" y1="20" x2="196" y2="70" stroke="#c99a5b" stroke-width="4"/><line x1="162" y1="16" x2="204" y2="66" stroke="#b5884c" stroke-width="4"/></g>
+      </svg>
+      <div class="tapa"></div>
+      <div class="charola"></div>
+    </div>
+    <div class="toca" id="tocaTapa">toca la tapa</div>
+    <div id="p3res" style="opacity:0; transition:opacity .6s; margin-top:16px">
+      <h2 style="font-size:28px">Yakimeshi<br>de <em>arrachera</em></h2>
+      <p class="sub">De Sushi Sensei, calientito.<br>Hoy no cocinas, hoy nada más abres la puerta.</p>
+      <div style="margin-top:20px"><button class="btn" id="aFinal">¿A qué hora llega? →</button></div>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section class="pantalla" id="p4">
+    <div class="kicker">Ya casi</div>
+    <h2>Llega a las<br><em>7:40</em></h2>
+    <div class="falta"><b id="falta">--</b><small id="faltaTxt">para que toquen tu puerta</small></div>
+    <div class="codigo">
+      <small>Código para el repartidor</small>
+      <b>1164</b>
+      <em>Dáselo cuando llegue. Sin eso no te lo entrega.</em>
+    </div>
+    <div class="dedica">
+      <p>Siempre vas a ser importante para mí.<br>Te amo, <b>princesa</b>.</p>
+    </div>
+    <div class="acciones">
+      <a id="wa" href="#"><button class="btn" style="width:100%">Contestarle a mi Ferny 💬</button></a>
+      <a href="#" id="otraVez"><button class="btn ghost" style="width:100%">Volver a leer la carta 💌</button></a>
+    </div>
+    <div class="pie">Que el día termine mejor de lo que empezó.</div>
+  </section>
+</div>
+
+<script>
+const $ = s => document.querySelector(s);
+const ir = id => {
+  document.querySelectorAll('.pantalla').forEach(p => p.classList.remove('on'));
+  $('#'+id).classList.add('on');
+  window.scrollTo({top:0, behavior:'instant'});
+};
+
+/* estrellas de fondo */
+(function(){
+  const box = $('#estrellas');
+  for (let i = 0; i < 40; i++){
+    const s = document.createElement('i');
+    s.style.left = Math.random()*100 + '%'; s.style.top = Math.random()*100 + '%';
+    s.style.animationDelay = (Math.random()*3.4) + 's';
+    box.appendChild(s);
+  }
+})();
+
+/* la carta aparece renglón por renglón */
+function leerCarta(){
+  const ps = document.querySelectorAll('#carta p');
+  ps.forEach(p => p.classList.remove('ve'));
+  $('#aCena').style.opacity = 0;
+  ps.forEach((p, i) => setTimeout(() => p.classList.add('ve'), 500 + i*1400));
+  setTimeout(() => { $('#aCena').style.opacity = 1; }, 500 + ps.length*1400);
+}
+$('#abrir').addEventListener('click', () => { ir('p2'); leerCarta(); });
+$('#aCena').addEventListener('click', () => ir('p3'));
+
+/* cuánto falta: 7:40 pm hora del Pacífico (Nayarit, UTC-7 todo el año) */
+const LLEGA = new Date('2026-10-22T19:40:00-07:00');
+function pintarFalta(){
+  const t = LLEGA - new Date();
+  const b = $('#falta'), txt = $('#faltaTxt');
+  if (t <= 0){ b.textContent = '¡Ya llegó!'; txt.textContent = 'asómate a la puerta'; return; }
+  const m = Math.ceil(t/60000);
+  b.textContent = m + ' min';
+  txt.textContent = 'para que toquen tu puerta';
+}
+pintarFalta(); setInterval(pintarFalta, 15000);
+
+/* destapar */
+let destapado = false;
+$('#mesa').addEventListener('click', () => {
+  if (destapado) return; destapado = true;
+  $('#mesa').classList.add('abierta');
+  $('#tocaTapa').style.display = 'none';          /* display, no opacity: la animación 'late' pisa el opacity en línea */
+  setTimeout(() => { $('#vapor').style.opacity = 1; confetear(); }, 500);
+  setTimeout(() => { $('#p3res').style.opacity = 1; }, 750);
+});
+$('#aFinal').addEventListener('click', () => { if (destapado) ir('p4'); });
+$('#otraVez').addEventListener('click', e => {
+  e.preventDefault();
+  destapado = false;
+  $('#mesa').classList.remove('abierta');
+  $('#vapor').style.opacity = 0; $('#p3res').style.opacity = 0; $('#tocaTapa').style.display = '';
+  ir('p2'); leerCarta();
+});
+
+/* WhatsApp: sin número, abre el selector de chats con el mensaje listo */
+$('#wa').href = 'https://wa.me/?text=' + encodeURIComponent('Ya llegó mi yakimeshi 🥢 gracias amor, te amo');
+
+/* confeti en tonos de noche */
+function confetear(){
+  const cv = $('#confeti'), ctx = cv.getContext('2d');
+  cv.width = innerWidth; cv.height = innerHeight;
+  const colores = ['#ffcf5c','#ff8fa3','#fffaf3','#c2456b','#ffdb7e'];
+  const ps = Array.from({length:90}, () => ({
+    x: Math.random()*cv.width, y: -20 - Math.random()*cv.height*.5,
+    w: 6+Math.random()*7, h: 9+Math.random()*10,
+    vy: 2.2+Math.random()*3.2, vx: (Math.random()-.5)*2.2,
+    rot: Math.random()*6.28, vr: (Math.random()-.5)*.28,
+    c: colores[Math.floor(Math.random()*colores.length)]
+  }));
+  let frames = 0;
+  (function loop(){
+    ctx.clearRect(0,0,cv.width,cv.height);
+    ps.forEach(p => {
+      p.x += p.vx; p.y += p.vy; p.rot += p.vr;
+      ctx.save(); ctx.translate(p.x,p.y); ctx.rotate(p.rot);
+      ctx.fillStyle = p.c; ctx.fillRect(-p.w/2,-p.h/2,p.w,p.h); ctx.restore();
+    });
+    if (++frames < 300) requestAnimationFrame(loop); else ctx.clearRect(0,0,cv.width,cv.height);
+  })();
+}
+</script>
+</body>
+</html>
